@@ -37,6 +37,23 @@ Essas bibliotecas devem ser adicionadas no projeto Wokwi usando o painel lateral
 3. Clique em **Start Simulation**
 4. Acompanhe o Serial Monitor para ver o envio simulado via MQTT
 
+## Conexão com o MQTTX
+
+O sistema publica os dados de umidade em tempo real no tópico `irrigacao/umidade` usando o broker público `broker.hivemq.com`.
+
+Para visualizar os dados:
+
+1. Baixe o [MQTTX](https://mqttx.app/)
+2. Crie uma nova conexão com as seguintes configurações:
+   - **Host**: `broker.hivemq.com`
+   - **Porta**: `1883`
+   - **Client ID**: qualquer nome (ex: FernandaESP32)
+   - **TLS/SSL**: desmarcado
+3. Após conectar, clique em **Subscribe** e insira o tópico: irrigacao/umidade
+4. Você verá mensagens JSON como:
+```json
+{"umidade": 32.4, "estado": "irrigando"}
+
 ## Arquivos neste repositório
 
 - `sketch.ino` – código-fonte do projeto
